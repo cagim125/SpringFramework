@@ -12,11 +12,12 @@ public class StudentSelectService {
 		this.studentDao = studentDao;
 	}
 	
-	public Student select(String sNum) {
+	public Student select(String sNum) throws IllegalArgumentException {
 		if(verify(sNum)) {
 			return studentDao.select(sNum);
 		} else {
 			System.out.println("Student information is available.");
+			throw new IllegalArgumentException("Student information is not available.");
 		}
 	}
 	
